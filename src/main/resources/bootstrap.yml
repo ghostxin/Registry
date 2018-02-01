@@ -3,15 +3,7 @@ spring:
     name: registry
   cloud:
     config:
-#      config的地址
       uri: http://localhost:8888
       fail-fast: true
       password: ${CONFIG_SERVICE_PASSWORD:111111}
       username: user
-
-eureka:
-  client:
-    register-with-eureka: false
-    fetch-registry: false
-    service-url:
-       defaultZone: http:///localhost:${server.port}/eureka
