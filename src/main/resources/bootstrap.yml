@@ -1,10 +1,41 @@
 spring:
   application:
     name: registry
-  cloud:
-    config:
-      uri: http://localhost:8888
-      fail-fast: true
-      password: ${CONFIG_SERVICE_PASSWORD:111111}
-      username: user
-      profile: ${SPRING_PROFILES_ACTIVE:dev}
+eureka:
+  server:
+    #是否关闭Eureka自我保护模式——————上生产时切记改成true，启动自我保护机制
+    enable-self-preservation: false
+
+logging:
+  level:
+    com.netflix.eureka: WARN
+    com.netflix.discovery: WARN
+  file: .log/registry.log
+
+---
+spring:
+  profiles: peer1
+server:
+    port: 8761
+eureka:
+  instance:
+    hostname: peer1
+  client:
+    #是否需要注册到注册中心
+    #registerWithEureka: false
+    #是否需要从注册中心获取服务列表
+    #fetchRegistry: false
+    service-url:
+      defaultZone: http://peer2:8762/eureka/
+
+---
+spring:
+  profiles: peer2
+server:
+  port: 8762
+eureka:
+  instance:
+    hostname: peer2
+  client:
+    service-url:
+      defaultZone: http://peer1:8761/eureka/
