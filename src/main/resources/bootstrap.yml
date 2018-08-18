@@ -19,7 +19,7 @@ logging:
   file: .log/registry.log
 ---
 spring:
-  profiles: master
+  profiles: ${PROJECT_CONF:master}
 
 eureka:
   instance:
@@ -28,7 +28,7 @@ eureka:
     service-url.defaultZone: http://eureka.slave:${server.port}/eureka/
 ---
 spring:
-  profiles: slave
+  profiles: ${PROJECT_CONF:master}
 
 eureka:
   instance:
