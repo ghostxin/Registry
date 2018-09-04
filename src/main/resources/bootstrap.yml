@@ -6,8 +6,6 @@ spring:
     name: registry
 
 eureka:
-  instance:
-    prefer-ip-address: true
   server:
     #是否关闭Eureka自我保护模式——————上生产时切记改成true，启动自我保护机制
     enable-self-preservation: true
