@@ -26,6 +26,8 @@ eureka:
     hostname: eureka.master
   client:
     service-url.defaultZone: http://eureka.slave:${server.port}/eureka/
+    register-with-eureka: true
+    fetch-registry: true
 ---
 spring:
   profiles: slave
@@ -35,3 +37,5 @@ eureka:
     hostname: eureka.slave
   client:
     service-url.defaultZone: http://eureka.master:${server.port}/eureka/
+    register-with-eureka: true
+    fetch-registry: true
