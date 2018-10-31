@@ -4,6 +4,9 @@ server:
 spring:
   application:
     name: registry
+  cloud:
+    inetutils:
+      timeout-seconds: 60
 
 eureka:
   server:
