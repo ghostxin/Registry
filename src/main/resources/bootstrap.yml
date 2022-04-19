@@ -6,7 +6,7 @@ spring:
     name: registry
   cloud:
     inetutils:
-      timeout-seconds: 60
+      timeout-seconds: 70
 
 eureka:
   server:

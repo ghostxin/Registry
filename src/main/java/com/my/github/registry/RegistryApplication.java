@@ -1,4 +1,4 @@
-package com.sogal.registry;
+package com.my.github.registry;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
